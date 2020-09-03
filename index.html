@@ -7,7 +7,44 @@
 
     <body>
         <script>
-            
+            const numberRegex = /^\d+$/;
+            let range;
+
+            getNumber();
+
+            function isItNumber(num){
+                if(numberRegex.test(num)){
+                    return true;
+                }
+                else{
+                    alert("Please input a valid number.");
+                    return false;
+                }
+            }
+
+            function getNumber(){
+                range = prompt("Please inpout a number:");
+                isItNumber(range) ? fizzBuzz(+range) : getNumber();
+            }
+
+            function fizzBuzz(num){
+                let result;    
+                for(let i = 1; i <= num; i++){
+                    if( i % 15 === 0){
+                        result = "fizzBuzz"
+                    }
+                    else if (i % 3 === 0){
+                        result = "fizz";
+                    }
+                    else if(i % 5 === 0){
+                        result = "buzz";
+                    }
+                    else{
+                        result = i;
+                    }
+                    console.log(result);
+                }
+            }            
         </script>
     </body>
 </html>
